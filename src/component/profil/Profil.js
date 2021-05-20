@@ -1,8 +1,8 @@
 import React from 'react'
-import { Card } from 'react-bootstrap'
 import "./Profile.css"
+import PropTypes from "prop-types";
 
-const Profil = ({data,show}) => {
+const Profil = ({data,show,show1}) => {
 
     return (
 <div >
@@ -10,21 +10,26 @@ const Profil = ({data,show}) => {
     <div className="tout">
       <div className="part1">
         <h1 style={{color: "#33334d"}}> {data.fullName} </h1> 
-        <h3 style={{color: "#666699"}}> {data.profession}</h3>
-        <h4 style={{color: "#b3b3cc"}}> {data.lieu}</h4>
         <br />
+        <h3 style={{color: "#666699"}}> {data.profession}</h3>
+        <br />
+        <h4 style={{color: "#666699"}}> {data.lieu}</h4>
         <br />
         <button className="bou" onClick={()=>show(data.fullName)}> A propos</button>
       </div>
       <div className="part2">
-        <h3 style={{color: "#52527a"}}> {data.enis} </h3> 
-        <h3 style={{color: "#52527a"}}> {data.job}</h3>
-        <h3 style={{color: "#52527a"}}> {data.link}</h3>
+        <h3 style={{color: "#666699"}}> {data.enis} </h3>
+        <br /> 
+        <h3 style={{color: "#666699"}}> {data.job}</h3>
+        <br />
+        <h3 className="clik" onClick={()=>show1(data.cor)} style={{color: "#666699"}}> {data.link}</h3>
       </div>
     </div>
 
 </div>
     )
 }
-
+Profil.propTypes ={
+  data:PropTypes.object
+}
 export default Profil
